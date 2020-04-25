@@ -65,7 +65,7 @@ public class RestApiController {
 	public ResponseEntity<?> orderWithFace(@RequestBody @Valid FaceOrderRequest request) {
 		logger.debug("Starting FaceOrderRequest - " + request);
 
-		String url = ARTEMIS_PATH + FACEORDER_URL;
+		final String url = ARTEMIS_PATH + FACEORDER_URL;
 		logger.debug("FaceOrder Url Path - " + url);
 		logger.debug("FaceOrder Url Protocol - " + PROTOCOL);
 
@@ -132,12 +132,12 @@ public class RestApiController {
 	public ResponseEntity<?> qap(@RequestBody @Valid QapRequest request) {
 		logger.debug("Starting QapRequest - " + request);
 
-		String url = ARTEMIS_PATH + QAP_URL;
+		final String url = ARTEMIS_PATH + QAP_URL;
 		logger.debug("Qap Url Path - " + url);
 		logger.debug("Qap Url Protocol - " + PROTOCOL);
 
 		Map<String, String> path = new HashMap<String, String>(2) {
-			private static final long serialVersionUID = 1L;
+			private static final long serialVersionUID = 2L;
 			{
 				put(PROTOCOL + "://", url);
 			}

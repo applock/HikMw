@@ -153,6 +153,13 @@
 			<artifactId>fastjson</artifactId>
 			<version>RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>11.2.0.3</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/resources/lib/artemis-http-client-1.1.2.jar</systemPath>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
