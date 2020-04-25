@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.6.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 	<groupId>com.hik</groupId>
 	<artifactId>HikMW</artifactId>
@@ -16,33 +16,20 @@
 	<description>HikVision MW with Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.7</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
-	<!-- <dependencies> <dependency> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-starter-actuator</artifactId> </dependency> <dependency> 
-		<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
-		</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-web</artifactId> 
-		</dependency> <dependency> <groupId>org.springframework</groupId> <artifactId>spring-web</artifactId> 
-		</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-web-services</artifactId> 
-		</dependency> <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-devtools</artifactId> 
-		<scope>runtime</scope> <optional>true</optional> </dependency> <dependency> 
-		<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-configuration-processor</artifactId> 
-		<optional>true</optional> </dependency> <dependency> <groupId>org.projectlombok</groupId> 
-		<artifactId>lombok</artifactId> <optional>true</optional> </dependency> <dependency> 
-		<groupId>io.springfox</groupId> <artifactId>springfox-swagger2</artifactId> 
-		<version>2.9.2</version> <scope>compile</scope> </dependency> <dependency> 
-		<groupId>io.springfox</groupId> <artifactId>springfox-swagger-ui</artifactId> 
-		<version>2.9.2</version> <scope>compile</scope> </dependency> <dependency> 
-		<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-test</artifactId> 
-		<scope>test</scope> <exclusions> <exclusion> <groupId>org.junit.vintage</groupId> 
-		<artifactId>junit-vintage-engine</artifactId> </exclusion> </exclusions> 
-		</dependency> <dependency> <groupId>org.springframework.security</groupId> 
-		<artifactId>spring-security-test</artifactId> <scope>test</scope> </dependency> 
-		</dependencies> <build> <plugins> <plugin> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-maven-plugin</artifactId> </plugin> </plugins> </build> -->
+	<scm>
+		<url></url>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>iman</name>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
@@ -143,14 +130,117 @@
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.25</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>RELEASE</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass></mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
+
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>PBG-release</id>
+			<name>PBG-release</name>
+			<url>http://af.hikvision.com.cn:80/artifactory/maven-pbg-release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>PBG-snapshot</id>
+			<name>PBG-snapshot</name>
+			<url>http://af.hikvision.com.cn/artifactory/maven-pbg-snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 </project>

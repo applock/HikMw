@@ -7,11 +7,25 @@ spring:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 
 hikvision:
- appKey: 29865942
- appSecret: FtRIhHHkaoOHi9BRYkxe
+ appKey: 23644340
+ appSecret: mQDbIQlFu7LY0Z5yBmuW
+ artemisPath: /artemis
+ httpOrHttps: http
  faceorder:
-  host: 172.12.96.29
-  port: 80
+  host: 202.55.92.163
+  port: 9016
+  url: /api/visitor/v1/orderWithFace
  qap:
-  host: 172.12.96.29
-  port: 80
+  host: 202.55.92.163
+  port: 9016
+  url: /api/acs/v1/door/events
+  
+logging:
+  level:
+    org.springframework: ERROR
+    com.hik.mw.controller: DEBUG
+    com.hikvision.artemis.sdk : INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+  file: E:/Project/hiklogs/hikMw.log

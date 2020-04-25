@@ -74,19 +74,19 @@ public class FaceOrderRequest {
 	@Size(min = 0, max = 128)
 	private String visitPurpose;
 
-	@NotNull
-	// @DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
-	@Pattern(regexp = "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})$")
+	//@Pattern(regexp = "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})$")
+	//@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
 	private String visitStartTime;
 
-	@NotNull
+	//@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
 	private String visitEndTime;
 
 	@NotNull
-	private String visitPhoto;
+	private String visitorPhoto;
 
-	@NotNull
+	//@NotNull
 	private ArrayList<String> priviledgeGroupIds;
 
 	@Override
@@ -97,7 +97,7 @@ public class FaceOrderRequest {
 				+ plateNo + ", hostName=" + hostName + ", nationality=" + nationality + ", packageName=" + packageName
 				+ ", gender=" + gender + ", deliveryType=" + deliveryType + ", email=" + email + ", workPermit="
 				+ workPermit + ", phoneNo=" + phoneNo + ", visitPurpose=" + visitPurpose + ", visitStartTime="
-				+ visitStartTime + ", visitEndTime=" + visitEndTime + ", visitPhoto=" + visitPhoto
+				+ visitStartTime + ", visitEndTime=" + visitEndTime + ", visitorPhoto=" + visitorPhoto
 				+ ", priviledgeGroupIds=" + priviledgeGroupIds + "]";
 	}
 
@@ -261,12 +261,12 @@ public class FaceOrderRequest {
 		this.visitEndTime = visitEndTime;
 	}
 
-	public String getVisitPhoto() {
-		return visitPhoto;
+	public String getVisitorPhoto() {
+		return visitorPhoto;
 	}
 
-	public void setVisitPhoto(String visitPhoto) {
-		this.visitPhoto = visitPhoto;
+	public void setVisitorPhoto(String visitPhoto) {
+		this.visitorPhoto = visitPhoto;
 	}
 
 	public ArrayList<String> getPriviledgeGroupIds() {
