@@ -1,0 +1,17 @@
+# Server Details
+server:
+ port: 8090
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+
+hikvision:
+ appKey: 29865942
+ appSecret: FtRIhHHkaoOHi9BRYkxe
+ faceorder:
+  host: 172.12.96.29
+  port: 80
+ qap:
+  host: 172.12.96.29
+  port: 80
