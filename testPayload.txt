@@ -1,0 +1,35 @@
+{
+  "endTime": "2020-08-11T12:00:00.000+08:00",
+  "pageNo": 1,
+  "pageSize": 10,
+  "startTime": "2018-08-10T12:00:00.000+08:00"
+}
+
+
+{
+  "birthday": "2018-07-26",
+  "certificateNo": "312488198704015698",
+  "certificateType": 111,
+  "contractName": "Xxxxx",
+  "deliveryType": "4545",
+  "designation": "XXX",
+  "email": "Chenzui@126.com",
+  "gender": 1,
+  "hostName": "Name",
+  "nationality": "China",
+  "packageName": "Hahahaha",
+  "partialId": "13574586231",
+  "personType": "Staff",
+  "phoneNo": "9999900000",
+  "plateNo": "A454545",
+  "priviledgeGroupIds": [
+    "bf2a8500-4194-4cbb-9f22-f0c487d31bba"
+  ],
+  "visitEndTime": "2020-04-30T12:00:00+08:00",
+  "visitPurpose": "Tourist",
+  "visitStartTime": "2020-04-30T08:00:00+08:00",
+  "visitorName": "V-Watch Test API 1",
+  "visitorPhoto": "1.jpg",
+  "workPermit": "2020-07-26",
+  "cardNo": "1010000001",
+}

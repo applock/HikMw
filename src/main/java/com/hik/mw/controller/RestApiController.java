@@ -99,6 +99,7 @@ public class RestApiController {
 		jsonBody.put("visitEndTime", request.getVisitEndTime());
 		jsonBody.put("visitorPhoto", request.getVisitorPhoto());
 		jsonBody.put("priviledgeGroupIds", request.getPriviledgeGroupIds());
+		jsonBody.put("cardNo", request.getCardNo());
 
 		String body = jsonBody.toJSONString();
 		logger.debug("FaceOrderApi body - " + body);

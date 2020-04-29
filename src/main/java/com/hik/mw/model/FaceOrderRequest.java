@@ -74,20 +74,22 @@ public class FaceOrderRequest {
 	@Size(min = 0, max = 128)
 	private String visitPurpose;
 
-	//@Pattern(regexp = "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})$")
-	//@NotNull
+	// @Pattern(regexp = "^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2})$")
+	// @NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
 	private String visitStartTime;
 
-	//@NotNull
+	// @NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
 	private String visitEndTime;
 
 	@NotNull
 	private String visitorPhoto;
 
-	//@NotNull
+	// @NotNull
 	private ArrayList<String> priviledgeGroupIds;
+
+	private String cardNo;
 
 	@Override
 	public String toString() {
@@ -98,7 +100,15 @@ public class FaceOrderRequest {
 				+ ", gender=" + gender + ", deliveryType=" + deliveryType + ", email=" + email + ", workPermit="
 				+ workPermit + ", phoneNo=" + phoneNo + ", visitPurpose=" + visitPurpose + ", visitStartTime="
 				+ visitStartTime + ", visitEndTime=" + visitEndTime + ", visitorPhoto=" + visitorPhoto
-				+ ", priviledgeGroupIds=" + priviledgeGroupIds + "]";
+				+ ", priviledgeGroupIds=" + priviledgeGroupIds + ", cardNo=" + cardNo + "]";
+	}
+
+	public String getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(String cardNo) {
+		this.cardNo = cardNo;
 	}
 
 	public PersonType getPersonType() {
