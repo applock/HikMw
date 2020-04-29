@@ -31,5 +31,5 @@
   "visitorName": "V-Watch Test API 1",
   "visitorPhoto": "1.jpg",
   "workPermit": "2020-07-26",
-  "cardNo": "1010000001",
+  "cardNo": "1010000001"
 }
