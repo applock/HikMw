@@ -7,8 +7,8 @@ spring:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 
 hikvision:
- appKey: 23644340
- appSecret: mQDbIQlFu7LY0Z5yBmuW
+ appKey: 28729388
+ appSecret: gUmLhDisMFBQxKAWXLB8
  artemisPath: /artemis
  httpOrHttps: http
  faceorder:

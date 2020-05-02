@@ -87,7 +87,7 @@ public class FaceOrderRequest {
 	private String visitorPhoto;
 
 	// @NotNull
-	private ArrayList<String> priviledgeGroupIds;
+	private ArrayList<String> privilegeGroupIds;
 
 	private String cardNo;
 
@@ -100,7 +100,7 @@ public class FaceOrderRequest {
 				+ ", gender=" + gender + ", deliveryType=" + deliveryType + ", email=" + email + ", workPermit="
 				+ workPermit + ", phoneNo=" + phoneNo + ", visitPurpose=" + visitPurpose + ", visitStartTime="
 				+ visitStartTime + ", visitEndTime=" + visitEndTime + ", visitorPhoto=" + visitorPhoto
-				+ ", priviledgeGroupIds=" + priviledgeGroupIds + ", cardNo=" + cardNo + "]";
+				+ ", privilegeGroupIds=" + privilegeGroupIds + ", cardNo=" + cardNo + "]";
 	}
 
 	public String getCardNo() {
@@ -279,12 +279,12 @@ public class FaceOrderRequest {
 		this.visitorPhoto = visitPhoto;
 	}
 
-	public ArrayList<String> getPriviledgeGroupIds() {
-		return priviledgeGroupIds;
+	public ArrayList<String> getPrivilegeGroupIds() {
+		return privilegeGroupIds;
 	}
 
-	public void setPriviledgeGroupIds(ArrayList<String> priviledgeGroupIds) {
-		this.priviledgeGroupIds = priviledgeGroupIds;
+	public void setPrivilegeGroupIds(ArrayList<String> privilegeGroupIds) {
+		this.privilegeGroupIds = privilegeGroupIds;
 	}
 
 }

@@ -98,7 +98,7 @@ public class RestApiController {
 		jsonBody.put("visitStartTime", request.getVisitStartTime());
 		jsonBody.put("visitEndTime", request.getVisitEndTime());
 		jsonBody.put("visitorPhoto", request.getVisitorPhoto());
-		jsonBody.put("priviledgeGroupIds", request.getPriviledgeGroupIds());
+		jsonBody.put("privilegeGroupIds", request.getPrivilegeGroupIds());
 		jsonBody.put("cardNo", request.getCardNo());
 
 		String body = jsonBody.toJSONString();
