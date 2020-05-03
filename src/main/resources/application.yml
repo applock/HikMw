@@ -19,6 +19,10 @@ hikvision:
   host: 202.55.92.163
   port: 9016
   url: /api/acs/v1/door/events
+ gpg:
+  host: 202.55.92.163
+  port: 9016
+  url: /api/visitor/v1/getPrivilegeGroup
   
 logging:
   level:

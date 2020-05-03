@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hik.mw.model.FaceOrderRequest;
+import com.hik.mw.model.PrivilegeGroupRequest;
 import com.hik.mw.model.QapRequest;
 import com.hikvision.artemis.sdk.ArtemisHttpUtil;
 import com.hikvision.artemis.sdk.config.ArtemisConfig;
@@ -49,6 +50,15 @@ public class RestApiController {
 
 	@Value("${hikvision.qap.url}")
 	private String QAP_URL;
+
+	@Value("${hikvision.gpg.host}")
+	private String GPG_HOST;
+
+	@Value("${hikvision.gpg.port}")
+	private String GPG_PORT;
+
+	@Value("${hikvision.gpg.url}")
+	private String GPG_URL;
 
 	@Value("${hikvision.httpOrHttps}")
 	private String PROTOCOL;
@@ -165,6 +175,52 @@ public class RestApiController {
 			return new ResponseEntity<String>(result, HttpStatus.OK);
 		} catch (Exception e) {
 			logger.debug("Qap Response Exception - " + e.getMessage());
+			return new ResponseEntity<String>("Service unavailable. Please try after sometime.",
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	/**
+	 * Calls HIKvision getPrivilegeGroup api.
+	 * 
+	 * @param request
+	 * @return
+	 */
+	@PostMapping("/acs/v1/getPrivilegeGroup")
+	public ResponseEntity<?> getPrivilegeGroup(@RequestBody @Valid PrivilegeGroupRequest request) {
+		logger.debug("Starting getPrivilegeGroup - " + request);
+
+		final String url = ARTEMIS_PATH + GPG_URL;
+		logger.debug("Gpg Url Path - " + url);
+		logger.debug("Gpg Url Protocol - " + PROTOCOL);
+
+		Map<String, String> path = new HashMap<String, String>(2) {
+			private static final long serialVersionUID = 2L;
+			{
+				put(PROTOCOL + "://", url);
+			}
+		};
+
+		JSONObject jsonBody = new JSONObject();
+		jsonBody.put("name", request.getName());
+		jsonBody.put("pageNo", request.getPageNo());
+		jsonBody.put("pageSize", request.getPageSize());
+		String body = jsonBody.toJSONString();
+		logger.debug("Gpg eventsApi body - " + body);
+
+		String GPG_HOST_PORT = GPG_HOST + ":" + GPG_PORT;
+
+		ArtemisConfig config = new ArtemisConfig();
+		config.setHost(GPG_HOST_PORT);
+		config.setAppKey(APP_KEY);
+		config.setAppSecret(APP_SECRET);
+
+		try {
+			String result = ArtemisHttpUtil.doPostStringArtemis(path, body, null, null, "application/json", null);
+			logger.debug("Gpg Response - " + result);
+			return new ResponseEntity<String>(result, HttpStatus.OK);
+		} catch (Exception e) {
+			logger.debug("Gpg Response Exception - " + e.getMessage());
 			return new ResponseEntity<String>("Service unavailable. Please try after sometime.",
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
