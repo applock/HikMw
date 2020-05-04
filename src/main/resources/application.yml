@@ -1,7 +1,13 @@
 # Server Details
 server:
  port: 8090
-
+ ssl:
+  key-store: classpath:keystore.p12
+  key-store-password: 12345678
+  key-store-type: pkcs12
+  key-alias: hikSelfSsl
+  key-password: 12345678
+  
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
